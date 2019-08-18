@@ -1,5 +1,6 @@
 import subprocess
 from flask import Flask, request, render_template
+from subprocess import PIPE
 
 app = Flask(__name__)
 
@@ -12,5 +13,5 @@ def run_ai():
     data = request.form
     board = data['board']
     player = data['player']
-    out = subprocess.run(["./ai", board, player], capture_output=True)
+    out = subprocess.run(["./ai", board, player], stdout=PIPE, stderr=PIPE)
     return out.stdout.strip()
