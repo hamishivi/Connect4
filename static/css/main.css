@@ -1,0 +1,75 @@
+body {
+  background-color: #2ecc71;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  text-align: center;
+}
+
+.cell {
+  height: 70px;
+  background-color: white;
+  border-width: 0.5px 1px 0.5px 1px;
+  border-color: #2ecc71;
+  border-style: solid;
+  color: #2ecc71;
+  font-size: 4em;
+  padding-left: 2% !important;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 70px;
+}
+
+.row {
+  margin-bottom: 0px;
+}
+
+.modal {
+  background-color: white;
+  color: black;
+}
+
+.green {
+  background-color: #2ecc71 !important;
+}
+
+.footer {
+  margin-top: 20px;
+  font-size: 15px;
+}
+
+.blinking {
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0.0;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+@media only screen and (max-device-width: 480px) {
+  .cell {
+    height: 35px;
+    background-color: white;
+    border-width: 0.5px 1px 0.5px 1px;
+    border-color: #2ecc71;
+    border-style: solid;
+    color: #2ecc71;
+    font-size: 2em;
+    padding-left: 1.5% !important;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 35px;
+  }
+  .text {
+    height: 35px;
+  }
+}
+
+.text {
+  height: 70px;
+}

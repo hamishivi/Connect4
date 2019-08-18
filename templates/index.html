@@ -1,0 +1,86 @@
+<head>
+  <meta charset="UTF-8">
+  <title>Connect 4</title>
+  <meta name="viewport" content="width=device-width,height=device-height initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link rel="stylesheet" href="/static/css/main.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</head>
+<script src="/static/js/game.js"></script>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+</link>
+<h1>Connect Four</h1>
+<div class="container">
+  {% for x in range(height) %}
+  <div class="row" id="h{{x}}">
+    {% if x == 0%}
+    <div class="col s3 text"><h3>Rules</h3>This is basically regular connect four - make four in a row horizontally, vertically or diagonally to win! However, if you think you can't do any good moves, you can skip your turn by pressing the "skip turn" button. However, after three skips without a winner the game is considered a draw, so watch out!<br><a id="turn"></a></div>
+    <div class="cell col s1 valign-wrapper" id="h{{x}}w0"></div>
+    {% else %}
+    <div class="cell col s1 offset-s{{((12-width)/2 + 1)|int}} valign-wrapper" id="h{{x}}w0"></div>
+    {% endif %}
+    {% for y in range(1, width) %}
+    <div class="cell col s1 valign-wrapper" id="h{{x}}w{{y}}"></div>
+    {% endfor %}
+  </div>
+  {% endfor %}
+  <div class="row">
+    <br>
+    <a class="waves-effect waves-light btn" id="skip">Skip Turn</a>
+  </div>
+</div>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <h4>Choose your side!</h4>
+    <p>Do you prefer X or O? O goes first.</p>
+  </div>
+  <div class="modal-footer">
+    <div class="center-align">
+      <a class="modal-action modal-close waves-effect waves-green X green btn-floating">X</a>
+    <a class=" modal-action modal-close waves-effect waves-green O green btn-floating">O</a>
+    </div>
+  </div>
+</div>
+
+<div id="compwin" class="modal">
+  <div class="modal-content">
+    <h4>Computer Wins!!</h4>
+    <p>If you want to play again, please select a side below.</p>
+  </div>
+  <div class="modal-footer">
+      <div class="center-align">
+    <a class="modal-action modal-close waves-effect waves-green X green btn-floating">X</a>
+    <a class=" modal-action modal-close waves-effect waves-green O green btn-floating">O</a>
+    </div>
+  </div>
+</div>
+
+<div id="playerwin" class="modal">
+  <div class="modal-content">
+    <h4>You win!!</h4>
+    <p>If you want to play again, please select a side below.</p>
+  </div>
+  <div class="modal-footer">
+      <div class="center-align">
+    <a class="modal-action modal-close waves-effect waves-green X green btn-floating">X</a>
+    <a class=" modal-action modal-close waves-effect waves-green O green btn-floating">O</a>
+    </div>
+  </div>
+</div>
+<div id="draw" class="modal">
+  <div class="modal-content">
+    <h4>Draw :(</h4>
+    <p>If you want to play again, please select a side below.</p>
+  </div>
+  <div class="modal-footer">
+      <div class="center-align">
+    <a class="modal-action modal-close waves-effect waves-green X green btn-floating">X</a>
+    <a class="modal-action modal-close waves-effect waves-green O green btn-floating">O</a>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <p>Created By <a href="http://www.hamishivi.github.io">Hamish Ivison</a></p>
+</div>
