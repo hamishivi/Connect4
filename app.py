@@ -1,8 +1,15 @@
 import subprocess
 from flask import Flask, request, render_template
 from subprocess import PIPE
+import os
+import stat
 
 app = Flask(__name__)
+
+@app.before_first_request
+def startup():
+    st = os.stat('./ai')
+    os.chmod('./ai', st.st_mode | stat.S_IEXEC)
 
 @app.route('/')
 def main_page():
@@ -10,6 +17,9 @@ def main_page():
 
 @app.route('/ai', methods=["POST"])
 def run_ai():
+    from os import listdir
+    from os.path import isfile, join
+    print([f for f in listdir('.') if isfile(join('.', f))])
     data = request.form
     board = data['board']
     player = data['player']
