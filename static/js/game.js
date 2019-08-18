@@ -32,7 +32,7 @@ function runAI(board) {
     }
     boardStr += ','
   }
-  boardStr.slice(0, -1); // remove last comma
+  boardStr = boardStr.slice(0, -1); // remove last comma
   $.post('/ai', {
     board: boardStr,
     player: 'yellow'
