@@ -491,7 +491,6 @@ int main(int argc, char **argv)
         }
     }
     bool is_red = (argv[2][0] == 'r');
-    // The input is now mine!! MWUHAHAHAHA
     // run the AI
     pid_t pid = fork();
     // child process

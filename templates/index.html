@@ -11,21 +11,23 @@
 <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 </link>
 <h1>Connect Four</h1>
+<a id="turn"></a>
 <div class="container">
   {% for x in range(height) %}
-  <div class="row" id="h{{x}}">
+  <div id="h{{x}}">
     {% if x == 0%}
-    <div class="col s3 text"><h3>Rules</h3>This is basically regular connect four - make four in a row horizontally, vertically or diagonally to win! However, if you think you can't do any good moves, you can skip your turn by pressing the "skip turn" button. However, after three skips without a winner the game is considered a draw, so watch out!<br><a id="turn"></a></div>
-    <div class="cell col s1 valign-wrapper" id="h{{x}}w0"></div>
+    <div class="cell" id="h{{x}}w0"></div>
     {% else %}
-    <div class="cell col s1 offset-s{{((12-width)/2 + 1)|int}} valign-wrapper" id="h{{x}}w0"></div>
+    <div class="cell" id="h{{x}}w0"></div>
     {% endif %}
     {% for y in range(1, width) %}
-    <div class="cell col s1 valign-wrapper" id="h{{x}}w{{y}}"></div>
+    <div class="cell" id="h{{x}}w{{y}}"></div>
     {% endfor %}
   </div>
   {% endfor %}
   <div class="row">
+    <br>
+    <div class="center-align"><h3>Rules</h3>This is basically regular connect four - make four in a row horizontally, vertically or diagonally to win! However, if you think you can't do any good moves, you can skip your turn by pressing the "skip turn" button. However, after three skips without a winner the game is considered a draw, so watch out!<br></div>
     <br>
     <a class="waves-effect waves-light btn" id="skip">Skip Turn</a>
   </div>
